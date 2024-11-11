@@ -11,7 +11,7 @@ you see something!
 
 You'll need to acquire a [Wasmtime] installation. The `wasmtime-py` package
 expects your platform's shared library to exist at `wasmtime/{host}/_{library}`.
-You can download the latest development version of Wasmtime by running a script
+You can download the latest known-compatible version of Wasmtime by running a script
 in the top-level directory of the package's source (this is what CI does):
 
 [wasmtime]: https://wasmtime.dev/

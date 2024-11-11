@@ -3054,25 +3054,25 @@ def wasmtime_table_type(store: Any, table: Any) -> ctypes._Pointer:
 
 _wasmtime_table_get = dll.wasmtime_table_get
 _wasmtime_table_get.restype = c_bool
-_wasmtime_table_get.argtypes = [POINTER(wasmtime_context_t), POINTER(wasmtime_table_t), c_uint32, POINTER(wasmtime_val_t)]
+_wasmtime_table_get.argtypes = [POINTER(wasmtime_context_t), POINTER(wasmtime_table_t), c_uint64, POINTER(wasmtime_val_t)]
 def wasmtime_table_get(store: Any, table: Any, index: Any, val: Any) -> bool:
     return _wasmtime_table_get(store, table, index, val)  # type: ignore
 
 _wasmtime_table_set = dll.wasmtime_table_set
 _wasmtime_table_set.restype = POINTER(wasmtime_error_t)
-_wasmtime_table_set.argtypes = [POINTER(wasmtime_context_t), POINTER(wasmtime_table_t), c_uint32, POINTER(wasmtime_val_t)]
+_wasmtime_table_set.argtypes = [POINTER(wasmtime_context_t), POINTER(wasmtime_table_t), c_uint64, POINTER(wasmtime_val_t)]
 def wasmtime_table_set(store: Any, table: Any, index: Any, value: Any) -> ctypes._Pointer:
     return _wasmtime_table_set(store, table, index, value)  # type: ignore
 
 _wasmtime_table_size = dll.wasmtime_table_size
-_wasmtime_table_size.restype = c_uint32
+_wasmtime_table_size.restype = c_uint64
 _wasmtime_table_size.argtypes = [POINTER(wasmtime_context_t), POINTER(wasmtime_table_t)]
 def wasmtime_table_size(store: Any, table: Any) -> int:
     return _wasmtime_table_size(store, table)  # type: ignore
 
 _wasmtime_table_grow = dll.wasmtime_table_grow
 _wasmtime_table_grow.restype = POINTER(wasmtime_error_t)
-_wasmtime_table_grow.argtypes = [POINTER(wasmtime_context_t), POINTER(wasmtime_table_t), c_uint32, POINTER(wasmtime_val_t), POINTER(c_uint32)]
+_wasmtime_table_grow.argtypes = [POINTER(wasmtime_context_t), POINTER(wasmtime_table_t), c_uint64, POINTER(wasmtime_val_t), POINTER(c_uint64)]
 def wasmtime_table_grow(store: Any, table: Any, delta: Any, init: Any, prev_size: Any) -> ctypes._Pointer:
     return _wasmtime_table_grow(store, table, delta, init, prev_size)  # type: ignore
 
